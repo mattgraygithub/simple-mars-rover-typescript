@@ -66,4 +66,17 @@ describe('Mars Rover', () => {
     ])('Moves west', (commands, expected) => {
         expect(execute(commands)).toBe(expected);
     })
+
+    it.each([
+        ['MR', '0:1:E'],
+        ['MRM', '1:1:E'],
+        ['MRL', '0:1:N'],
+        ['RMR', '1:0:S'],
+        ['RML', '1:0:N'],
+        ['RMLM', '1:1:N'],
+        ['RMRM', '1:9:S'],
+        ['MLM', '9:1:W']
+    ])('Moves with multiple different commands', (commands, expected) => {
+        expect(execute(commands)).toBe(expected);
+    })
 });
