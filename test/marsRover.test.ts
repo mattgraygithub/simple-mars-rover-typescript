@@ -7,7 +7,7 @@ describe('Mars Rover', () => {
         ['RRR', '0:0:W'],
         ['RRRR', '0:0:N'],
         ['RRRRR', '0:0:E'],
-        ['RRRRRRRR', '0:0:N'],
+        ['RRRRRRRR', '0:0:N']
     ])('rotates right %s', (commands, expected) => {
         expect(execute(commands)).toBe(expected);
     });
@@ -30,4 +30,40 @@ describe('Mars Rover', () => {
     ])('rotates left and right %s', (commands, expected) => {
         expect(execute(commands)).toBe(expected);
     });
-})
+
+    it.each([
+        ['M', '0:1:N'],
+        ['MM', '0:2:N'],
+        ['MMM', '0:3:N'],
+        ['MMMMMMMMMM', '0:0:N']
+    ])('Moves north', (commands, expected) => {
+        expect(execute(commands)).toBe(expected);
+    })
+
+    it.each([
+        ['RM', '1:0:E'],
+        ['RMM', '2:0:E'],
+        ['RMMM', '3:0:E'],
+        ['RMMMMMMMMMM', '0:0:E']
+    ])('Moves east', (commands, expected) => {
+        expect(execute(commands)).toBe(expected);
+    })
+
+    it.each([
+        ['RRM', '0:9:S'],
+        ['RRMM', '0:8:S'],
+        ['RRMMM', '0:7:S'],
+        ['RRMMMMMMMMMMM', '0:9:S']
+    ])('Moves south', (commands, expected) => {
+        expect(execute(commands)).toBe(expected);
+    })
+
+    it.each([
+        ['RRRM', '9:0:W'],
+        ['RRRMM', '8:0:W'],
+        ['RRRMMM', '7:0:W'],
+        ['RRRMMMMMMMMMMM', '9:0:W']
+    ])('Moves west', (commands, expected) => {
+        expect(execute(commands)).toBe(expected);
+    })
+});
