@@ -79,4 +79,10 @@ describe('Mars Rover', () => {
     ])('Moves with multiple different commands', (commands, expected) => {
         expect(execute(commands)).toBe(expected);
     })
+
+    describe('mars rover acceptance', () => {
+        it(`given an input 'MMRMMLM' then the output should be '2:3:N'`, () => {
+            expect(execute('MMRMMLM')).toBe('2:3:N');
+        })
+    })
 });
