@@ -1,0 +1,1 @@
+A simple Typescript solution to the [Codurance Simple Mars Rover Kata](https://www.codurance.com/katas/simple-mars-rover)
